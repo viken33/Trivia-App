@@ -1,0 +1,21 @@
+<body>
+{% extends "base.html" %}
+{% block content %}
+<h1>Categoría {{categoria.nombre}}</h1>
+<br>
+<div style="text-align: center;">
+<h2><span style="font-weight: bold; background-color: rgb(147, 206, 222);">{{pregunta.text}}</span></h2>
+    {% for res in respuestas %}
+    <tr><td><a href="/trivia/{{pregunta.id}}/resultado/{{res.id}}">
+    {{res.text}}
+    </td></a></tr>
+    <br>
+    {% endfor %}
+<br>
+<div style="text-align:center;">
+</div>
+<br>
+</div>
+<br>
+{% endblock %}
+</body>

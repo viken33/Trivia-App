@@ -1,0 +1,19 @@
+<body>
+{% extends "base.html" %}
+{% block content %}
+<h1>Seleccione Categoria</h1>
+<br>
+<table border="0">
+   {% for categoria in categorias %}
+		<tr><td><a href="/trivia/{{categoria.id}}/pregunta">
+		{{categoria.descripcion}}
+		</td></a></tr>
+		{% if session[categoria.id] %}
+			<p>"categoria pronta"</p>
+		{%	endif %}
+   {% endfor %}
+</table>
+<hr>
+<br>
+{% endblock %}
+</body>
