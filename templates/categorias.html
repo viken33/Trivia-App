@@ -1,19 +1,22 @@
 <body>
 {% extends "base.html" %}
 {% block content %}
+<div style="text-align: center;">
 <h1>Seleccione Categoria</h1>
 <br>
-<table border="0">
    {% for categoria in categorias %}
 		<tr><td><a href="/trivia/{{categoria.id}}/pregunta">
-		{{categoria.descripcion}}
-		</td></a></tr>
-		{% if session[categoria.id] %}
-			<p>"categoria pronta"</p>
-		{%	endif %}
+			<a class="btn btn-primary" href="/trivia/{{categoria.id}}/pregunta" role="button" 
+			style="margin-left:30px">{{categoria.descripcion}}</a>
+		</td></a>
+		{% if session[categoria.id|string()] == True %}
+			<td>-> Categoria pronta!</td>
+		{%	endif %} </tr>
+		<br>
+		<br>
    {% endfor %}
-</table>
-<hr>
-<br>
+
+</div>
+
 {% endblock %}
 </body>

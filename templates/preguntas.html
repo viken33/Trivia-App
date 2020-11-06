@@ -1,13 +1,14 @@
 <body>
 {% extends "base.html" %}
 {% block content %}
-<h1>Categoría {{categoria.nombre}}</h1>
-<br>
 <div style="text-align: center;">
+<h1>Categoría {{categoria.descripcion}}</h1>
+<br>
+
 <h2><span style="font-weight: bold; background-color: rgb(147, 206, 222);">{{pregunta.text}}</span></h2>
     {% for res in respuestas %}
-    <tr><td><a href="/trivia/{{pregunta.id}}/resultado/{{res.id}}">
-    {{res.text}}
+    <tr><td><a class="btn btn-primary" href="/trivia/{{pregunta.id}}/resultado/{{res.id}}" 
+    role="button" style="margin: 5px 2px;">{{res.text}}</a>
     </td></a></tr>
     <br>
     {% endfor %}
@@ -15,6 +16,8 @@
 <div style="text-align:center;">
 </div>
 <br>
+<a class="btn btn-primary" href="/trivia/categorias" 
+    role="button" style="margin: 5px 2px;">Volver a Categorías</a>
 </div>
 <br>
 {% endblock %}
