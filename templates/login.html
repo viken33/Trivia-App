@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="center2">
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <div class=form-group>
+                {{ form.email.label }} <br>
+                {{ form.email(size=45) }}<br>
+                {% for error in form.email.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class=form-group>
+                {{ form.password.label }} <br>
+                {{ form.password(size=45) }}<br>
+                {% for error in form.password.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>{{ form.remember_me() }} {{ form.remember_me.label }}</div>
+            <div>
+                {{ form.submit(class="btn btn-primary") }} <a href="{{ url_for('register') }}" style=text-align:right;>¿No estás registrado?</a>
+            </div>
+        </form>
+    </div>
+        
+
+{% endblock %}

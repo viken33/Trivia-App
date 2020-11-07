@@ -5,13 +5,18 @@
 <h1>Seleccione Categoria</h1>
 <br>
    {% for categoria in categorias %}
-		<tr><td><a href="/trivia/{{categoria.id}}/pregunta">
+		<tr><td>
+			{% if session[categoria.id|string()] == True %}
+			<a href="#" class="btn btn-primary disabled" role="button" 
+			style="margin-left:30px" aria-disabled="true">{{categoria.descripcion}}</a>
+			{% else %}
 			<a class="btn btn-primary" href="/trivia/{{categoria.id}}/pregunta" role="button" 
 			style="margin-left:30px">{{categoria.descripcion}}</a>
+			{%	endif %} </tr>
+			
+	
 		</td></a>
-		{% if session[categoria.id|string()] == True %}
-			<td>-> Categoria pronta!</td>
-		{%	endif %} </tr>
+		
 		<br>
 		<br>
    {% endfor %}

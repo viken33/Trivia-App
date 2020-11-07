@@ -1,6 +1,7 @@
 # importamos la instancia de la BD
 from apptrivia import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 class Categoria(db.Model):
     __tablename__ = 'categoria'
@@ -36,7 +37,7 @@ class Respuesta(db.Model):
     def __repr__(self):
         return f'<Respuesta {self.text}>'
 
-class Usuario(db.Model):
+class Usuario(db.Model, UserMixin):
     __tablename__ = 'usuario'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(32), nullable=False)
@@ -52,3 +53,17 @@ class Usuario(db.Model):
 
     def __repr__(self):
         return f'<Usuario {self.name} Email: {self.email}>'
+
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+
+
+    @staticmethod
+    def get_by_id(id):
+        return Usuario.query.get(id)
+
+    @staticmethod
+    def get_by_email(email):
+        return Usuario.query.filter_by(email=email).first()
