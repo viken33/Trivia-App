@@ -20,7 +20,7 @@
             </div>
             <div>{{ form.remember_me() }} {{ form.remember_me.label }}</div>
             <div>
-                {{ form.submit(class="btn btn-primary") }} <a href="{{ url_for('register') }}" style=text-align:right;>¿No estás registrado?</a>
+                {{ form.submit(class="btn btn-primary") }} <a href="{{ url_for('auth.register') }}" style=text-align:right;>¿No estás registrado?</a>
             </div>
         </form>
     </div>

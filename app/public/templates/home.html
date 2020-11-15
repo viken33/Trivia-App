@@ -1,0 +1,23 @@
+<body>
+{% extends "base.html" %}
+{% block content %}
+<div style="text-align: center;">
+<h1 style="text-align:center;">Bienvenido a la Trivia</h1>
+<hr>
+<br>
+<p>Para completar el juego debes contestar correctamente al menos una pregunta de cada categoría</p>
+<p>Mientras más rápido lo logres...mejor será tu puntuación!</p>
+<br>
+<hr>
+{% if current_user.is_anonymous %}
+<a class="btn btn-primary" href="/trivia/login" role="button" style="margin-left:10px">Comenzar a Jugar !</a>
+{% else %}
+<a class="btn btn-primary" href="/trivia/categorias" role="button" style="margin-left:10px">Comenzar a Jugar !</a>
+{% endif %}
+
+<br>
+</div>
+
+{% endblock %}
+
+</body>
