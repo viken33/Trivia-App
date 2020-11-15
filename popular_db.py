@@ -17,8 +17,8 @@ c_arte = Categoria(descripcion="Arte")
 q_Laos = Pregunta(text="¿Cuál es la capital de Laos?",categoria=c_geogra)
 q_Armenia = Pregunta(text="¿Cuál es la población aproximada de Armenia?",categoria=c_geogra)
 q_mundial = Pregunta(text="¿En qué país se jugó la Copa del Mundo de 1962?",categoria=c_deporte)
-q_Artigas = Pregunta(text="¿En qué año nació Artigas?", categoria=c_historia)
-q_Blanes = Pregunta(text="¿Qué pintor uruguayo se destaca por la temática gauchesca", categoria=c_arte)
+q_Artigas = Pregunta(text="¿En qué año nació José G. Artigas?", categoria=c_historia)
+q_Blanes = Pregunta(text="¿Qué pintor uruguayo se destaca por la temática gauchesca?", categoria=c_arte)
 
 # respuestas
 r_1 = Respuesta(text="3 millones",pregunta=q_Armenia, correcta=True)
