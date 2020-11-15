@@ -2,4 +2,8 @@ flask
 flask_sqlalchemy
 flask_admin
 psycopg2-binary
-
+flask_principal
+flask_login
+flask_migrate
+flask_wtf
+wtforms

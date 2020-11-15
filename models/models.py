@@ -42,8 +42,10 @@ class Usuario(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(32), nullable=False)
     email = db.Column(db.String(64), nullable=False, unique=True)
+    genesis = db.Column(db.DateTime, nullable=True)
+    highscore = db.Column(db.Integer, default=0)
     password = db.Column(db.String(128), nullable=False)
-    admin = db.Column(db.Boolean)
+    roles = db.relationship('Role', backref='usuario', lazy='dynamic')
 
     def set_password(self,password):
         self.password = generate_password_hash(password)
@@ -59,6 +61,9 @@ class Usuario(db.Model, UserMixin):
             db.session.add(self)
         db.session.commit()
 
+    def update_highscore(self, hs):
+        self.highscore = int(hs)
+        db.session.commit()
 
     @staticmethod
     def get_by_id(id):
@@ -67,3 +72,11 @@ class Usuario(db.Model, UserMixin):
     @staticmethod
     def get_by_email(email):
         return Usuario.query.filter_by(email=email).first()
+
+class Role(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    rolename = db.Column(db.String(60), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))
+    
+    def __repr__(self):
+        return f'<Role {self.rolename}>'

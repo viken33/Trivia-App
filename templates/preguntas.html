@@ -5,13 +5,17 @@
 <h1>Categoría {{categoria.descripcion}}</h1>
 <br>
 
-<h2><span style="font-weight: bold; background-color: rgb(147, 206, 222);">{{pregunta.text}}</span></h2>
+<h2><span style="font-weight: bold; background-color: rgb(147, 206, 222);"> {{ pregunta.text }} </span></h2>
+<br>
+<br>
+<div class="btn-group">
     {% for res in respuestas %}
-    <tr><td><a class="btn btn-primary" href="/trivia/{{pregunta.id}}/resultado/{{res.id}}" 
-    role="button" style="margin: 5px 2px;">{{res.text}}</a>
-    </td></a></tr>
-    <br>
+    
+    <a class="btn btn-primary btn-lg" href="/trivia/{{pregunta.id}}/resultado/{{res.id}}" 
+    role="button" style="margin: 5px 4px;">{{res.text}}</a>
+    
     {% endfor %}
+</div>
 <br>
 <div style="text-align:center;">
 </div>

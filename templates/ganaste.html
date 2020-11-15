@@ -4,11 +4,31 @@
 <br>
 <div style="text-align: center;">
 <h2><span
-style="font-weight: bold; background-color: rgb(147, 206, 222);">Bravo Ganaste!</span></h2>
-<h2><span
-    style="font-weight: bold; background-color: rgb(147, 206, 222);">La partida duró {{duracion}}</span></h2>
-<br>
-<div style="text-align:center;">
+style="font-weight: bold; background-color: rgb(147, 206, 222);">Bravo Ganaste! La partida duró {{duracion}}</span></h2>
+
+<div>
+    <h3>Mejores Puntuaciones:</h3>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <table class="table table-responsive table-sm table-bordered text-center">
+                            <thead>
+                                    <tr>
+                                            <th scope="col">Jugador</th>
+                                            <th scope="col">Score (seg)</th>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users%}
+                                    <tr>
+                                            <th style="padding-left: 10px;">{{ user.name }}     </th>
+                                            <th style="padding-left: 10px;">{{ user.highscore }}</th>
+                                    </tr>
+                            {% endfor %}
+                            </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 <br>
 <a class="btn btn-primary" href="/trivia" 

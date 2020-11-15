@@ -1,6 +1,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<div class="cabezal"> Trivia: <a href="/trivia" style=padding:25px>Inicio</a> <a href="/trivia/logout" style=padding:25px>Salir</a>
+<div class="cabezal"> Trivia: <a href="/trivia" style=padding:25px>Inicio</a> 
+  {% if not current_user.is_anonymous %}
+  
+  Usuario Logueado: {{ current_user.name }}
+  <a href="/trivia/logout" style="position:absolute; right:80px">Salir</a>
+  
+  {% endif %}
 </div>
 <hr>
 
@@ -17,7 +23,11 @@
 
 {% block content %}{% endblock %}
 
-
+<div style="text-align: left; padding-left: 10px; position: absolute; bottom: 10px;">
+  <hr>
+  <p>    Desarrollado por <a href="mailto:viken33@gmail.com">viken</a> para el Taller de Python/Flask de ANTEL - Primavera 2020<br>
+  <a href="https://github.com/viken33/trivia/">    Forkear esta trivia</a></p>
+  </div>
 
 <style>
 .cabezal {
